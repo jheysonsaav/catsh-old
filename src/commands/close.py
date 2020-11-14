@@ -1,7 +1,7 @@
 import sys
 
 
-class Close:
+class CloseCommand:
     def __init__(self, code=0, msg=""):
         self.exit_code: int = code
         self.msg: str = msg

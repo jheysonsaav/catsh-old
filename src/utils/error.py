@@ -1,11 +1,10 @@
-from colorama import *
+from colorama import init, Fore
 
 
 class Error:
-    def __init__(self, err):
-        self.err = err
-        self.text_err = "Error: " + Fore.RED
+    def __init__(self, msg="Undefined error message"):
+        self.msg = msg
 
-    def nose(self):
-        init(autoreset=True)
-        print(f"{self.text_err}{self.err}")
+    def run(self):
+        init()
+        print("Error: {0}".format(self.msg))

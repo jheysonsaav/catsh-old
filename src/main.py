@@ -1,17 +1,23 @@
-from commands import close
+from commands import close, clean, print
+from utils import error
+from colorama import Fore
 
 
 class Main:
-    def __init__(self, prompt="-> "):
-        self.prompt = input(prompt)
+    def __init__(self, prompt="-| "):
+        self.prompt = prompt + Fore.BLUE
+        self.cli = input(self.prompt)
+        self.error = error.Error()
 
-    def commands(self):
-        close_command = close.Close()
-        command = self.prompt
-        if command.startswith("exit"):
-            close_command.run()
+    def shell(self):
+        commands = {
+            1: "Clean",
+            2: "Print",
+            3: "Close",
+        }
+        print(commands.get(1))
 
 
 if __name__ == "__main__":
     main = Main()
-    main.commands()
+    main.shell()
