@@ -5,7 +5,7 @@ name = "pypi"
 
 [scripts]
 start = "python src/main.py"
-build = "pyinstaller ./pysh.spec"
+build = "pyinstaller ./catsh.spec"
 
 [packages]
 colorama = "*"
