@@ -6,6 +6,7 @@ name = "pypi"
 [scripts]
 start = "python src/main.py"
 build = "pyinstaller ./catsh.spec"
+publish = "sh ./tools/publish.sh"
 
 [packages]
 colorama = "*"

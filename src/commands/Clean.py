@@ -1,10 +1,12 @@
+"""
+Copyright (C) JheysonDev ~ All right reserved
+"""
 import os
 import platform
 
 
 class CleanCommand:
-    def __init__(self, args=""):
-        self.args = args
+    def __init__(self):
         self.command: str = ""
 
     def run(self):

@@ -1,3 +1,6 @@
+"""
+Copyright (C) JheysonDev ~ All right reserved
+"""
 import sys
 
 
