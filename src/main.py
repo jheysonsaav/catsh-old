@@ -1,7 +1,7 @@
 """
 Copyright (C) JheysonDev ~ All right reserved
 """
-from commands import Close, Clean, Print
+from commands import Close, Clean, Print, Exec
 from utils import Error
 from colorama import Fore
 
@@ -20,6 +20,8 @@ class Main:
                 Clean.CleanCommand().run()
             elif command[0] == "close":
                 Close.CloseCommand().run()
+            elif command[0] == "exec":
+                Exec.ExecCommand(command[1]).run()
             elif command[0] == "":
                 Error.Error("You must enter a command").run()
             else:
