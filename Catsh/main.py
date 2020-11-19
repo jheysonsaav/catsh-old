@@ -1,15 +1,18 @@
 """
 Copyright (C) JheysonDev ~ All right reserved
 """
-from commands import Close, Clean, Print, Exec, Env
-from utils import Error
+from Catsh.commands import Close, Clean, Print, Exec, Env
+from Catsh.utils import Error
 from colorama import Fore
 
 
-class Main:
+class Catsh:
     def __init__(self, prompt="-| "):
         self.prompt = prompt
-        self.cli = input(self.prompt)
+        self.cli: str = input(self.prompt)
+
+    def run(self):
+        self.shell()
 
     def shell(self):
         while self.cli >= "":
@@ -31,6 +34,5 @@ class Main:
             self.cli = input(self.prompt)
 
 
-if __name__ == "__main__":
-    main = Main()
-    main.shell()
+main = Catsh()
+run = main.run()

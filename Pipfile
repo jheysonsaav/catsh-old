@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [scripts]
-start = "python src/main.py"
+start = "python ./Catsh/main.py"
 build = "pyinstaller ./catsh.spec"
 publish = "sh ./tools/publish.sh"
 

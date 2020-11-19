@@ -2,14 +2,14 @@
 Copyright (C) JheysonDev ~ All right reserved
 """
 import os
-from utils import Error
+from Catsh.utils import Error
 
 
 class ExecCommand:
     def __init__(self, args=""):
-        self.path = os.getenv("PATH").split(":")
-        self.args = args.split(" ", 1)
-        self.iterations = len(self.path)
+        self.path: list = os.getenv("PATH").split(":")
+        self.args: list = args.split(" ", 1)
+        self.iterations: int = len(self.path)
 
     def run(self):
         for b in self.path:
