@@ -1,6 +1,6 @@
 # CatSh
 
-### Install
+## Install
 
 to install catsh there are two ways which are the "native" way and the "interpreted" way.
 
