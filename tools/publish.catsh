@@ -1,0 +1,4 @@
+#!/usr/bin/env catsh
+[exec] python setup.py sdist bdist_wheel
+[exec] twine upload dist/*.tar.gz dist/*.whl
+[remove] *.egg-info dist/*.tar.gz dist/*.whl

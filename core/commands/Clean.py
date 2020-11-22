@@ -1,6 +1,4 @@
-"""
-Copyright (C) JheysonDev ~ All right reserved
-"""
+# Copyright (C) JheysonDev ~ All right reserved
 import os
 import platform
 

@@ -1,9 +1,6 @@
-"""
-Copyright (C) JheysonDev ~ All right reserved
-"""
-from Catsh.commands import Close, Clean, Print, Exec, Env
-from Catsh.utils import Error
-from colorama import Fore
+# Copyright (C) JheysonDev ~ All right reserved
+from commands import Close, Clean, Print, Exec, Env
+from utils import Error
 
 
 class Catsh:

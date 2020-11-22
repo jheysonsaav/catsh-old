@@ -1,3 +1,4 @@
+# Copyright (C) JheysonDev ~ All right reserved
 from setuptools import setup, find_packages
 
 with open("README.md", "r") as fh:
@@ -17,13 +18,13 @@ setup(
         "Environment :: Console",
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
-        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+        "License :: OSI Approved :: GNU General Public License v3",
     ],
     install_requires=["colorama==0.4.4"],
     python_requires=">=3.6",
     entry_points={
         "console_scripts": [
-            "catsh=Catsh.main:run",
+            "catsh=core.main:run",
         ]
     },
 )

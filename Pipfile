@@ -4,7 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [scripts]
-start = "python ./Catsh/main.py"
+start = "python ./core/main.py"
+dev = "nodemon -e py --exec \"python ./core/main.py\""
 build = "pyinstaller ./catsh.spec"
 publish = "sh ./tools/publish.sh"
 

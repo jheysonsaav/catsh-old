@@ -1,8 +1,6 @@
-"""
-Copyright (C) JheysonDev ~ All right reserved
-"""
+# Copyright (C) JheysonDev ~ All right reserved
 import os
-from Catsh.utils import Error
+from utils import Error
 
 
 class EnvCommand:
