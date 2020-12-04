@@ -1,0 +1,76 @@
+name: Rust CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: Running on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - macos-latest
+
+    steps:
+      - name: Install Rustlang v1.47.0
+        uses: hecrj/setup-rust-action@v1
+        with:
+          rust-version: 1.47.0
+
+      - uses: actions/checkout@v2
+
+      - name: Versions
+        run: |
+          rustc --version
+          cargo --version
+      - name: Testing
+        run: cargo test --release
+
+      - name: Pre-release (Build)
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: cargo build --release
+
+      - name: Pre-release (Ubuntu)
+        if: |
+          startsWith(github.ref, 'refs/tags/v') &&
+          startsWith(matrix.os, 'ubuntu')
+        run: zip -r catsh-x86_64-unknown-linux-gnu.zip target/release/catsh
+
+      - name: Pre-release (Windows)
+        if: |
+          startsWith(github.ref, 'refs/tags/v') &&
+          startsWith(matrix.os, 'windows')
+        run: Compress-Archive -CompressionLevel Optimal -Force -Path target/release/catsh.exe -DestinationPath target/release/catsh-x86_64-pc-windows-msvc.zip
+
+      - name: Pre-release (MacOS)
+        if: |
+          startsWith(github.ref, 'refs/tags/v') &&
+          startsWith(matrix.os, 'macos')
+        run: zip -r catsh-x86_64-apple-darwin.zip target/release/catsh
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: |
+          startsWith(github.ref, 'refs/tags/v') &&
+          github.repository == 'JheysonDev/catsh'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIHUB_TOKEN }}
+        with:
+          files: |
+            target/release/catsh-x86_64-unknown-linux-gnu.zip
+            target/release/catsh-x86_64-pc-windows-msvc.zip
+            target/release/catsh-x86_64-apple-darwin.zip
+          body_path: CHANGELOG.md
+          draft: true
+
+      - name: Publish to Cargo
+        if: |
+          startsWith(github.ref, 'refs/tags/v') &&
+          github.repository == 'sflynlang/sflynlang-interpreter' &&
+          startsWith(matrix.os, 'ubuntu')
+        env:
+          CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+        run: cargo publish

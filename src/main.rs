@@ -2,6 +2,7 @@ use rustyline::error::ReadlineError;
 use rustyline::Editor;
 
 mod commands;
+mod config;
 mod utils;
 
 fn verify_line(line: &str) {
@@ -14,6 +15,7 @@ fn verify_line(line: &str) {
 }
 
 fn main() {
+    config::paths();
     let mut rl = Editor::<()>::new();
     if rl.load_history(".catsh_history").is_err() {
         println!("No previous history.");
