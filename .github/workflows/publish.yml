@@ -73,4 +73,4 @@ jobs:
           startsWith(matrix.os, 'ubuntu')
         env:
           CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
-        run: cargo publish
+        run: cargo publish --allow-dirty
