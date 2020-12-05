@@ -5,11 +5,14 @@ mod commands;
 mod utils;
 
 fn verify_line(line: &str) {
-    match line {
-        "clean" | "clear" => commands::clean::run(),
-        "close" | "exit" => commands::close::run(),
+    let mut params = line.split_whitespace();
+    let command = params.next();
+    match command.unwrap() {
+        "clean" => commands::clean::run(),
+        "close" => commands::close::run(0),
+        // "exec" => commands::exec::run(params.next()),
         "" => utils::alerts::warning("You must enter a command"),
-        &_ => utils::alerts::error("Command not found"),
+        _ => utils::alerts::error("Command not found"),
     }
 }
 

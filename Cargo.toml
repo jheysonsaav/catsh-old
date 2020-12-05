@@ -7,7 +7,8 @@ edition = "2018"
 readme = "README.md"
 repository = "https://github.com/JheysonDev/catsh"
 license = "GPL-3.0"
-keywords = ["shell","terminal","windows","linux","darwin"]
+license_file = "LICENSE"
+keywords = ["shell","terminal","windows","linux","darwin","catsh"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
