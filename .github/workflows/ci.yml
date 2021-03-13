@@ -28,8 +28,8 @@ jobs:
           cargo --version
       - name: Testing
         run: |
-        cargo test --verbose
-        cargo test --verbose --release
+          cargo test --verbose
+          cargo test --verbose --release
 
       - name: Pre-release (Build)
         if: startsWith(github.ref, 'refs/tags/v')
